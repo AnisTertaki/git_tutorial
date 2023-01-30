@@ -1,0 +1,221 @@
+
+configurer username et email :
+
+git config --global user.name "AnisTertaki"
+git config --global user.email tertakiaksil@gmail.com
+
+
+
+
+
+help:
+
+git config --help
+git config -h
+git rm -h 
+git commande -h
+
+
+
+
+
+
+initialiser : 
+
+git init
+
+
+
+
+
+status :
+
+git status
+git status -s //short
+
+
+
+
+
+
+
+add all files to staging area :
+
+git add .
+git add --all
+git add -A
+
+
+
+
+
+
+
+
+faire des commits :
+
+git commit -m "message"
+git commit
+
+
+
+
+
+
+
+list files in the staging area :
+
+git ls-files
+
+
+
+
+
+
+
+
+rename files directly in the git :
+
+git mv odlname newname
+
+
+
+
+
+
+
+
+
+
+
+files to ignore :
+
+create a new file .gitignore and put all files or reps you want to hide like "logs/"
+
+
+
+
+
+
+
+
+
+
+
+
+just remove from staging area :
+
+git rm --cached file
+git rm --cacher -r rep/
+
+
+
+
+
+
+
+check the difference between two files :
+
+git diff --staged 
+git diff
+
+
+
+
+
+
+
+
+
+check the difference between two files using vscode :
+
+git config --global diff.tool vscode
+git config --global difftool.vscode.cmd "code --wait --diff $LOCAL $REMOTE"
+git config --global -e //to check the changes 
+
+git difftool
+git difftool --staged
+
+
+
+
+
+
+
+
+
+
+see the commits : 
+
+git log
+git log --oneline
+git log --oneline --reverse
+
+git show d601b90
+git show HEAD~1   //see the first commit before the last one
+git show HEAD~1:.gitignore
+
+git ls-tree HEAD~1 //show all files stored in this commit
+
+
+
+
+
+
+
+
+
+
+restore modifications before doing the commit : 
+
+git restore --staged filename
+git restore .
+
+git clean -fd  //to force undo changes in local 
+
+git restore --source=HEAD~1 filename
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
