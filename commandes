@@ -145,7 +145,7 @@ git difftool --staged
 
 
 
-see the commits : 
+see and place the commits : 
 
 git log
 git log --oneline
@@ -157,7 +157,15 @@ git show HEAD~1:.gitignore
 
 git ls-tree HEAD~1 //show all files stored in this commit
 
+git checkout d601b90   // pour détacher la tete qui est HEAD
+git checkout main^     // revenir au commit parent de main
+git checkout main^^    // revenir au commit grand parent de main
 
+
+git checkout main~4   		//positionner main dans le commit parent 4 de main
+git branch -f main HEAD~3 	//bouge (de force) la branche main à trois parents derrière HEAD.
+git branch -f main d601b90     //bouge (de force) le main vers le commit.
+  
 
 
 
@@ -175,6 +183,20 @@ git clean -fd  //to force undo changes in local
 
 git restore --source=HEAD~1 filename
 
+git resest HEAD~1  //juste fait remonter une branche en arrière  "local"
+git revert HEAD    // créer un nouveau commit dont les changement de l'ancien commit sont annulé et partager le avec tout le monde "distant"
+
+
+
+
+
+
+
+
+
+recopier les commit de la branche à la branche principale au lieu de faire un merge ou rebase :
+
+git cherry-pick C2 C4 //recopier C2 ET C4
 
 
 
