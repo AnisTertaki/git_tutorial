@@ -231,7 +231,7 @@ git fakeTeamwork 3
 
 
 
-faire des push et des fetch:
+faire des push et des fetch, pull:
 
 git push 
 git push origin main
@@ -241,6 +241,7 @@ git push origin foo:newbranch
 git push origin main^:foo
 
 git fetch origin source^:destination //recupérer les commites distant du père de source vers la branch destination dans notre rep local
+git pull origin source:dest  //fetch ensuite un merge
 
 git push origin :dest  //supprimer la branche destination dans le rep loc et distant
 git fetch origin :bar  // recupérer tout vers une nouvelle branch bar
