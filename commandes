@@ -56,7 +56,7 @@ faire des commits :
 
 git commit -m "message"
 git commit
-
+git commit --amend        //The git commit --amend command is a convenient way to modify the most recent commit. It lets you combine staged changes with the previous commit instead of creating an entirely new commit. It can also be used to simply edit the previous commit message without changing its snapshot
 
 
 
@@ -157,7 +157,7 @@ git show HEAD~1:.gitignore
 
 git ls-tree HEAD~1 //show all files stored in this commit
 
-git checkout d601b90   // pour détacher la tete qui est HEAD
+git checkout d601b90   // pour détacher la tete qui est HEAD ou // git checkout HEAD~ // detacher au premier parent
 git checkout main^     // revenir au commit parent de main
 git checkout main^^    // revenir au commit grand parent de main
 
@@ -165,7 +165,8 @@ git checkout main^^    // revenir au commit grand parent de main
 git checkout main~4   		//positionner main dans le commit parent 4 de main
 git branch -f main HEAD~3 	//bouge (de force) la branche main à trois parents derrière HEAD.
 git branch -f main d601b90     //bouge (de force) le main vers le commit.
-  
+git branch bugWork HEAD~^2^    // créer une nouvelle branch bugWork et la déblacer vers le commit parent du deuxième parent du parent 
+					de HEAD sans changer l'emplacement de HEAD
 
 
 
@@ -194,9 +195,55 @@ git revert HEAD    // créer un nouveau commit dont les changement de l'ancien c
 
 
 
+
+
+
+
+
 recopier les commit de la branche à la branche principale au lieu de faire un merge ou rebase :
 
 git cherry-pick C2 C4 //recopier C2 ET C4
+git rebase -i HEAD~4  //affiche une fenetre sur laquelle on peut modifier et réorganiser les 4 dernier commits
+
+
+
+
+récuperer les commits récents du travail :
+
+git fetch http://.......  //télécharge les commits que le dépôt distant possède mais qui ne sont pas dans le nôtre, puis...
+			   //met à jour nos branches distantes (par exemple, origin/main).
+git pull http://..... //fait un fetch suivi par un merge sur notre rep local
+git pull --rebase     //pull à base de rebase non de merge  
+
+git pull origin foo est équivalent à : git fetch origin foo; git merge o/foo
+
+
+
+
+
+créer des fake commit :
+
+git fakeTeamwork
+git fakeTeamwork 3
+
+
+
+
+
+
+faire des push et des fetch:
+
+git push 
+git push origin main
+git push origin foo //on spécifie l'origin de push
+git push origin foo:main  //origin:destination 
+git push origin foo:newbranch
+git push origin main^:foo
+
+git fetch origin source^:destination //recupérer les commites distant du père de source vers la branch destination dans notre rep local
+
+git push origin :dest  //supprimer la branche destination dans le rep loc et distant
+git fetch origin :bar  // recupérer tout vers une nouvelle branch bar
 
 
 
@@ -207,35 +254,13 @@ git cherry-pick C2 C4 //recopier C2 ET C4
 
 
 
+git checkout -b totallyNotMain o/main //Cette commande crée une nouvelle branche nommée totallyNotMain et la configure pour suivre o/main.
 
+git branch -u o/main foo
 
+Ce qui va configurer la branche foo (déjà existante) en la faisant suivre o/main. Si foo est la branche courante, vous pouvez même ne pas la préciser :
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+git branch -u o/main
 
 
 
